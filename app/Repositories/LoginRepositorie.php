@@ -9,10 +9,12 @@ class LoginRepositorie
     public function pengecekan($request, $valid)
     {
         if (Auth::attempt($valid)) {
+            notify()->success('Selamat datang ' . Auth::user()->name);
             $request->session()->regenerate();
-            $pindah = redirect()->intended(route('home'))->with('pesan','Selamat datang');
+            $pindah = redirect()->intended(route('home'));
         } else {
-            $pindah = back()->with('error', 'Maaf ada kesalahan');
+            notify()->error('maaf data anda ada yang salah');
+            $pindah = back();
         }
         return $pindah;
     }

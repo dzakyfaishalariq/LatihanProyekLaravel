@@ -16,11 +16,12 @@ class LoginService
     public function autentifik($request)
     {
         $ruls = [
-            'username' => 'required',
+            'username' => 'required|min:3',
             'password' => 'required'
         ];
         $text = [
             'username.required' => 'data anda harus di isi',
+            'username.min' => 'data kurang dari 3 karakter',
             'password.required' => 'data anda harus di isi'
         ];
         $data[] = Validator::make($request->all(), $ruls, $text);

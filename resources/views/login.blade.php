@@ -71,11 +71,14 @@
 
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
+    @notifyCss
 </head>
 
 <body class="text-center">
-
+    {{-- @include('notify::messages') --}}
+    {{-- <x:notify-messages /> --}}
     <main class="form-signin w-100 m-auto">
+        {{-- @include('notify::messages') --}}
         <form action="{{ route('l_system') }}" method="POST">
             @csrf
             <img class="mb-4"
@@ -89,14 +92,14 @@
                 </div>
             @endif --}}
             <div class="form-floating">
-                <input type="text" class="form-control @error('username') is-invalid  @enderror" name="username"
-                    id="floatingInput" placeholder="username">
+                <input type="text" class="form-control" name="username" id="floatingInput" required
+                    placeholder="username">
                 <label for="floatingInput">Username</label>
             </div>
             <br>
             <div class="form-floating">
-                <input type="password" class="form-control @error('username') is-invalid  @enderror" name="password"
-                    id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" name="password" required id="floatingPassword"
+                    placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
 
@@ -114,7 +117,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
-
+    @notifyJs
+    <x:notify-messages />
 </body>
 
 </html>

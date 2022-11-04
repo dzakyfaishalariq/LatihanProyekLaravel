@@ -17,7 +17,8 @@ class LoginController extends Controller
     {
         $valid = $this->loginService->autentifik($request);
         if ($valid[0]->fails()) {
-            return redirect()->intended(route('login'))->with('error', $valid[0]->errors()->first());
+            notify()->error($valid[0]->errors()->first());
+            return redirect()->intended(route('login'));
         }
         return $valid[1];
     }
