@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
     Route::controller(WebController::class)->group(function () {
         Route::get('/', 'login')->name('login');
+        Route::get('/registrasi', 'register')->name('register');
     });
     Route::controller(LoginController::class)->group(function () {
         Route::post('/login', 'login_system')->name('l_system');
+    });
+    Route::controller(RegistrasiController::class)->group(function () {
+        Route::post('/register_system', 'input_register')->name('r_system');
     });
 });
 Route::middleware('auth')->group(function () {

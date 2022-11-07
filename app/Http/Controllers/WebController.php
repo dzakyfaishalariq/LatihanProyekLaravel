@@ -13,6 +13,11 @@ class WebController extends Controller
         // smilify('Su', 'Selamat Datang di laman saya');
         return view('login', ['title' => $title]);
     }
+    public function register()
+    {
+        $title = "Register";
+        return view('register', ['title' => $title]);
+    }
     public function home()
     {
         return view('home');

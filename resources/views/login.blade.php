@@ -81,10 +81,7 @@
         {{-- @include('notify::messages') --}}
         <form action="{{ route('l_system') }}" method="POST">
             @csrf
-            <img class="mb-4"
-                src="https://img2.pngdownload.id/20180406/dle/kisspng-equation-solving-mathematics-mathematical-notation-administrator-5ac76637674719.930573521523017271423.jpg"
-                width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 fw-normal">Login</h1>
             {{-- @if (Session::get('error'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Error</strong> {{ Session::get('error') }}
@@ -92,7 +89,7 @@
                 </div>
             @endif --}}
             <div class="form-floating">
-                <input type="text" class="form-control" name="username" id="floatingInput" required
+                <input type="text" class="form-control" name="username" required id="floatingInput"
                     placeholder="username">
                 <label for="floatingInput">Username</label>
             </div>
@@ -107,8 +104,13 @@
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
+                {{-- <br> --}}
+                {{-- <a href="#" class=" stretched-link text-danger">Register</a> --}}
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <br>
+            <br>
+            <a href="{{ route('register') }}" class="w-100 btn btn-lg btn-success">Register</a>
             <p class="mt-5 mb-3 text-muted">&copy; 2022–2023</p>
         </form>
     </main>
