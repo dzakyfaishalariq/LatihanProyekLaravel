@@ -18,7 +18,7 @@ class RegisterRepositorie
         $warna = ['4420c7', 'f20808', '0dff00', 'dd00ff', '000000'];
         $w_rand = array_rand($warna, 1);
         $dua_carakter_nama = strtoupper($nama[0] . $nama[1]);
-        $pictur = 'https://dummyimage.com/200x200/' . $w_rand . '/ffffff.png&text=' . $dua_carakter_nama;
+        $pictur = 'https://dummyimage.com/200x200/' . $warna[$w_rand] . '/ffffff.png&text=' . $dua_carakter_nama;
         //https://dummyimage.com/200x200/000000/ffffff.png&text=DZAKY
         $data_input = User::create([
             'name' => $request->nama,

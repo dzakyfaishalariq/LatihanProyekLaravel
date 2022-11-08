@@ -1,126 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js " lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.104.2">
-    <title>Signin Template · Bootstrap v5.2</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-    {{-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/"> --}}
+    <title>{{ $title }}</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 
-
-    {{-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .b-example-divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-    @notifyCss
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
 </head>
 
-<body class="text-center">
-    {{-- @include('notify::messages') --}}
-    {{-- <x:notify-messages /> --}}
-    <main class="form-signin w-100 m-auto">
-        {{-- @include('notify::messages') --}}
-        <form action="{{ route('l_system') }}" method="POST">
-            @csrf
-            <h1 class="h3 mb-3 fw-normal">Login</h1>
-            {{-- @if (Session::get('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error</strong> {{ Session::get('error') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<body class="theme-black">
+    <div class="authentication">
+        <div class="container">
+            <div class="col-md-12 content-center">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="company_detail">
+                            <h4 class="logo"><img src="assets/images/logo.svg" alt=""> PLK</h4>
+                            <h3> Penjadwalan <strong>Ruangan CBT</strong> Poltekes Kemenkes Bengkulu</h3>
+                            <p>Pengambangan Aplikasi Penjadwalan Ruangan</p>
+                            <div class="footer">
+                                <ul class="social_link list-unstyled">
+                                    <li><a href="https://thememakker.com" title="ThemeMakker"><i
+                                                class="zmdi zmdi-globe"></i></a></li>
+                                    <li><a href="https://themeforest.net/user/thememakker" title="Themeforest"><i
+                                                class="zmdi zmdi-shield-check"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/thememakker/" title="LinkedIn"><i
+                                                class="zmdi zmdi-linkedin"></i></a></li>
+                                    <li><a href="https://www.facebook.com/thememakkerteam" title="Facebook"><i
+                                                class="zmdi zmdi-facebook"></i></a></li>
+                                    <li><a href="http://twitter.com/thememakker" title="Twitter"><i
+                                                class="zmdi zmdi-twitter"></i></a></li>
+                                    <li><a href="http://plus.google.com/+thememakker" title="Google plus"><i
+                                                class="zmdi zmdi-google-plus"></i></a></li>
+                                    <li><a href="https://www.behance.net/thememakker" title="Behance"><i
+                                                class="zmdi zmdi-behance"></i></a></li>
+                                </ul>
+                                <hr>
+                                <ul>
+                                    <li><a href="http://thememakker.com/contact/" target="_blank">Contact Us</a></li>
+                                    <li><a href="http://thememakker.com/about/" target="_blank">About Us</a></li>
+                                    <li><a href="http://thememakker.com/services/" target="_blank">Services</a></li>
+                                    <li><a href="javascript:void(0);">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 offset-lg-1">
+                        <div class="card-plain">
+                            <div class="header">
+                                <h5>Log in</h5>
+                            </div>
+                            <form action="{{ route('l_system') }}" method="POST" class="form">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="text" name="username"
+                                        class="form-control @error('username') is-invalid @enderror"
+                                        placeholder="User Name" value="{{ old('username') }}">
+                                    <span class="input-group-addon"><i class="zmdi zmdi-account-circle"></i></span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" name="password" placeholder="Password"
+                                        class="form-control" />
+                                    <span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+                                </div>
+                                <div class="footer">
+                                    {{-- <a href="index.html" class="btn btn-primary btn-round btn-block">SIGN IN</a> --}}
+                                    <button type="submit" class="btn btn-primary btn-round btn-block">SING IN</button>
+                                    <a href="{{ route('register') }}"
+                                        class="btn btn-primary btn-simple btn-round btn-block">SIGN
+                                        UP</a>
+                                </div>
+                            </form>
+                            <a href="forgot-password.html" class="link">Forgot Password?</a>
+                        </div>
+                    </div>
                 </div>
-            @endif --}}
-            <div class="form-floating">
-                <input type="text" class="form-control" name="username" required id="floatingInput"
-                    placeholder="username">
-                <label for="floatingInput">Username</label>
             </div>
-            <br>
-            <div class="form-floating">
-                <input type="password" class="form-control" name="password" required id="floatingPassword"
-                    placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-                {{-- <br> --}}
-                {{-- <a href="#" class=" stretched-link text-danger">Register</a> --}}
-            </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            <br>
-            <br>
-            <a href="{{ route('register') }}" class="w-100 btn btn-lg btn-success">Register</a>
-            <p class="mt-5 mb-3 text-muted">&copy; 2022–2023</p>
-        </form>
-    </main>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-    </script>
-    @notifyJs
-    <x:notify-messages />
+        </div>
+    </div>
+    <!-- Jquery Core Js -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 </body>
 
 </html>

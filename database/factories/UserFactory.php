@@ -17,9 +17,15 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $nama = fake()->name();
+        $warna = ['4420c7', 'f20808', '0dff00', 'dd00ff', '000000'];
+        $w_rand = array_rand($warna, 1);
+        $dua_carakter_nama = strtoupper($nama[0] . $nama[1]);
+        $pictur = 'https://dummyimage.com/200x200/' . $warna[$w_rand] . '/ffffff.png&text=' . $dua_carakter_nama;
         return [
-            'name' => fake()->name(),
+            'name' => $nama,
             'username' => fake()->regexify('[A-Z]{5}[0-4]{3}'),
+            'avatar' => $pictur,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

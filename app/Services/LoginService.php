@@ -15,21 +15,11 @@ class LoginService
     }
     public function autentifik($request)
     {
-        $ruls = [
+        $valid = $request->validate([
             'username' => 'required|min:3',
             'password' => 'required'
-        ];
-        $text = [
-            'username.required' => 'data anda harus di isi',
-            'username.min' => 'data kurang dari 3 karakter',
-            'password.required' => 'data anda harus di isi'
-        ];
-        $data[] = Validator::make($request->all(), $ruls, $text);
-        $valid = $request->validate([
-            'username' => 'required',
-            'password' => 'required'
         ]);
-        $data[] = $this->loginRepo->pengecekan($request, $valid);
+        $data = $this->loginRepo->pengecekan($request, $valid);
         return $data;
     }
     public function logout($request)

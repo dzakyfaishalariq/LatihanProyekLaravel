@@ -16,11 +16,11 @@ class LoginController extends Controller
     public function login_system(Request $request)
     {
         $valid = $this->loginService->autentifik($request);
-        if ($valid[0]->fails()) {
-            notify()->error($valid[0]->errors()->first());
-            return redirect()->intended(route('login'));
-        }
-        return $valid[1];
+        // if ($valid[0]->fails()) {
+        //     notify()->error($valid[0]->errors()->first());
+        //     return redirect()->intended(route('login'));
+        // }
+        return $valid;
     }
     public function logout(Request $request)
     {
