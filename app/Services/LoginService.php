@@ -16,8 +16,8 @@ class LoginService
     public function autentifik($request)
     {
         $valid = $request->validate([
-            'username' => 'required|min:3',
-            'password' => 'required'
+            'username' => 'required|min:3|regex:/^[a-zA-Z 0-9]+$/',
+            'password' => 'required|regex:/^[a-zA-Z0-9]+$/'
         ]);
         $data = $this->loginRepo->pengecekan($request, $valid);
         return $data;

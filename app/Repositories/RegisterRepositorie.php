@@ -6,7 +6,7 @@ use App\Models\User;
 
 class RegisterRepositorie
 {
-    public function tambahData($request)
+    public function tambahData($request, $valid)
     {
         // if ($data_valid->fails()) {
         //     # code...
@@ -29,10 +29,12 @@ class RegisterRepositorie
         ]);
         $data_replay = $data_input->fresh();
         if ($data_replay != Null) {
-            notify()->success('Data anda sudah di simpan dengan identitas \n'
-                . 'Nama     : ' . $data_replay->name . '\n'
-                . 'Username : ' . $data_replay->username . '\n'
-                . 'Email     : ' . $data_replay->email . '\n');
+            // buat pesan notify dengan memberikan data nama, username, dan email
+            notify()->success('Selamat ' . $data_replay->name . ' anda berhasil mendaftar dengan username ' . $data_replay->username . ' dan email ' . $data_replay->email);
+            // notify()->success('Data anda sudah di simpan dengan identitas \n'
+            //     . 'Nama     : ' . $data_replay->name . '\n'
+            //     . 'Username : ' . $data_replay->username . '\n'
+            //     . 'Email     : ' . $data_replay->email . '\n');
             $data = redirect(route('login'));
         } else {
             # code...

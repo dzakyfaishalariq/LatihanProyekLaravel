@@ -1,62 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <style>
-        .header {
-            background-color: rgba(53, 111, 226, 0.485);
-        }
-    </style>
-    @notifyCss
-</head>
-
-<body>
-    <div class=" container">
-        <div class="card">
-            <div class=" card-header header">
-                <h4 class=" text-center text-white">Register</h4>
-            </div>
-            <div class=" card-body">
-                <form action="{{ route('r_system') }}" method="post">
-                    @csrf
-                    <div class=" form-floating mb-3">
-                        <input type="text" name="nama" class=" form-control" id="Nama"
-                            value="{{ old('nama') }}" placeholder="Nama">
-                        <label for="Nama">Nama</label>
-                    </div>
-                    <div class=" form-floating mb-3">
-                        <input type="text" name="username" class=" form-control" id="Username"
-                            placeholder="Username" value="{{ old('username') }}">
-                        <label for="Username">Username</label>
-                    </div>
-                    <div class=" form-floating mb-3">
-                        <input type="email" name="email" class=" form-control" id="email" placeholder="email"
-                            value="{{ old('email') }}">
-                        <label for="email">examples@gmail.com</label>
-                    </div>
-                    <div class=" form-floating mb-3">
-                        <input type="password" name="password" class=" form-control" id="Password"
-                            placeholder="Password">
-                        <label for="Password">Password</label>
-                    </div>
-                    <a href="{{ route('login') }}">Kembali</a>
-                    <hr>
-                    <button type="submit" class="w-100 btn btn-lg btn-primary">Daftar</button>
-                </form>
-            </div>
+@extends('template_user.login_template')
+@section('content')
+    <div class="card-plain">
+        <div class="header">
+            <h5>Sign Up</h5>
+            <span>Register a new membership</span>
         </div>
+        <form action="{{ route('r_system') }}" method="POST" class="form">
+            @csrf
+            <div class="input-group">
+                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Nama"
+                    value="{{ old('nama') }}">
+                <span class="input-group-addon"><i class="material-icons">perm_identity</i></span>
+            </div>
+            @error('nama')
+                <p class="message text-danger" style="font-size: 10px">{{ $message }}</p>
+            @enderror
+            <div class="input-group">
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
+                    placeholder="User name" value="{{ old('username') }}">
+                <span class="input-group-addon"><i class="zmdi zmdi-account-circle"></i></span>
+            </div>
+            @error('username')
+                <p class="message text-danger" style="font-size: 10px">{{ $message }}</p>
+            @enderror
+            <div class="input-group">
+                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
+                    placeholder="Enter Email" value="{{ old('email') }}">
+                <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+            </div>
+            @error('email')
+                <p class="message text-danger" style="font-size: 10px">{{ $message }}</p>
+            @enderror
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password"
+                    class="form-control @error('password') is-invalid @enderror" />
+                <span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+            </div>
+            @error('username')
+                <p class="message text-danger" style="font-size: 10px">{{ $message }}</p>
+            @enderror
+            <div class="checkbox">
+                <input id="terms" type="checkbox">
+                <label for="terms">I read and Agree to the <a href="javascript:void(0);">Terms of Usage</a></label>
+            </div>
+            <div class="footer">
+                {{-- <a href="index.html" class="btn btn-primary btn-round btn-block">SIGN UP</a> --}}
+                <button type="submit" class=" btn btn-primary btn-round btn-block">SIGN UP</button>
+            </div>
+        </form>
+        <a class="link" href="sign-in.html">You already have a membership?</a>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-    </script>
-    @notifyJs
-    <x:notify-messages />
-</body>
-
-</html>
+@endsection
